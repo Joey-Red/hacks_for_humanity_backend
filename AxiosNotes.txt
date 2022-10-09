@@ -4,9 +4,10 @@ let App = () => {
     let [audioLoaded, setAudioLoaded] = useState(false);
     let [audioFile, setAudioFile] = useState("");
     let fetchAudio = (url, data) => {
+        //TESTING WILL BE FOR DYNAMIC FETCHING
         axios
             .get(
-                "http://localhost:8080/media/9a799d02a6af869225435df8114e1690.mp3",
+                "https://h4h-backend.herokuapp.com/media/9a799d02a6af869225435df8114e1690.mp3",
                 data,
                 {
                 }
@@ -32,14 +33,15 @@ let App = () => {
                     Loaded x
                     <audio controls>
                         <source
-                            src="http://localhost:8080/media/9a799d02a6af869225435df8114e1690.mp3"
+                        //FETCH FILE (TESTING)
+                            src="https://h4h-backend.herokuapp.com/media/9a799d02a6af869225435df8114e1690.mp3"
                             type="audio/mpeg"
                         />
                     </audio>
                 </div>
             )}
             <form
-                action="http://localhost:8080/upload"
+                action="https://h4h-backend.herokuapp.com/media/9a799d02a6af869225435df8114e1690.mp3/upload"
                 method="POST"
                 encType="multipart/form-data"
             >
@@ -50,6 +52,8 @@ let App = () => {
                         className="custom-file-input"
                         name="file"
                     />
+                    //This is to upload files, the input MUST have name="file"
+                    //And this only supports mp3, no video (intentionally)
                     <label htmlFor="file" className="custom-file-label">
                         Choose File
                     </label>
