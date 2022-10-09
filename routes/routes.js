@@ -6,7 +6,6 @@ const User = require("../Schematics/User");
 const Post = require("../Schematics/Post");
 const LocalStrategy = require("passport-local").Strategy;
 const dotenv = require("dotenv");
-const cors = require("cors");
 dotenv.config();
 // mongoose.set("debug", true);
 
