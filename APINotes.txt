@@ -1,0 +1,23 @@
+/create-post 
+{
+  "postTitle"
+  "postBody"
+  "username"
+}
+
+/deletePost
+{
+    postId
+}
+
+/sign-up
+{
+    username,
+    password
+}
+/log-in
+{
+    username, 
+    password
+}
+hacksforhumanity1!
