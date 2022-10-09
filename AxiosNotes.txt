@@ -1,0 +1,67 @@
+import React, { useState } from "react";
+import axios from "axios";
+let App = () => {
+    let [audioLoaded, setAudioLoaded] = useState(false);
+    let [audioFile, setAudioFile] = useState("");
+    let fetchAudio = (url, data) => {
+        axios
+            .get(
+                "http://localhost:8080/media/9a799d02a6af869225435df8114e1690.mp3",
+                data,
+                {
+                }
+            )
+            .then(({ data }) => {
+                setAudioFile(data);
+                setAudioLoaded(true);
+            });
+    };
+
+    return (
+        <div className="App">
+            <div>
+                <button
+                    onClick={() => fetchAudio()}
+                    style={{ background: "orange" }}
+                >
+                    Search for audio
+                </button>
+            </div>
+            {audioLoaded && (
+                <div>
+                    Loaded x
+                    <audio controls>
+                        <source
+                            src="http://localhost:8080/media/9a799d02a6af869225435df8114e1690.mp3"
+                            type="audio/mpeg"
+                        />
+                    </audio>
+                </div>
+            )}
+            <form
+                action="http://localhost:8080/upload"
+                method="POST"
+                encType="multipart/form-data"
+            >
+                <div>
+                    <input
+                        type="file"
+                        id="file"
+                        className="custom-file-input"
+                        name="file"
+                    />
+                    <label htmlFor="file" className="custom-file-label">
+                        Choose File
+                    </label>
+                </div>
+                <button
+                    type="submit"
+                >
+                    SUBMIT
+                </button>
+            </form>
+        </div>
+    );
+};
+
+export default App;
