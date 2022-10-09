@@ -8,7 +8,7 @@
     "scripts": {
         "start": "node ./bin/www",
         "devstart": "nodemon ./bin/www",
-        "serverstart": "DEBUG=hacks_for_humanity_backend:* npm run devstart"
+        "serverstart": "npm i --force DEBUG=hacks_for_humanity_backend:* npm run devstart"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
